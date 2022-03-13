@@ -1,8 +1,5 @@
-import readlineSync from 'readline-sync';
-
-const output = (text) => console.log(text);
-
-const question = (text) => readlineSync.question(`${text} `);
+#!/usr/bin/env node
+import { output, question } from '../src/cli.js';
 
 const getNumber = () => Math.floor((Math.random() * 1000) + 1);
 
@@ -12,7 +9,6 @@ const evenGame = () => {
   output(`Hello, ${name}!`);
   output('Answer "yes" if the number is even, otherwise answer "no".');
 
-  let gameStatus = true;
   for (let i = 0; i < 3; i += 1) {
     const number = getNumber();
     const answer = question(`Question: ${number}`);
@@ -20,13 +16,13 @@ const evenGame = () => {
     const correctAnswer = numberEven ? 'yes' : 'no';
     if (answer !== correctAnswer) {
       output(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      gameStatus = false;
-      break;
+      return 0;
     }
     output('Correct!');
   }
 
-  if (gameStatus) output(`Congratulations, ${name}!`);
+  output(`Congratulations, ${name}!`);
+  return 1;
 };
 
 evenGame();
