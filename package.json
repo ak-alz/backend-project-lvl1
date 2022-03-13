@@ -19,5 +19,8 @@
   "homepage": "https://github.com/ak-alz/backend-project-lvl1#readme",
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
   }
 }
