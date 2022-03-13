@@ -32,7 +32,7 @@ jobs:
         # The Node.js version to configure
         with:
           node-version: ${{ matrix.node-version }}
-          cache: true
+          cache: 1
       - run: make install
       - run: make lint
       # - name: Test & publish code coverage
