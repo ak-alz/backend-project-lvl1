@@ -14,7 +14,9 @@ const evenGame = () => {
     const numberEven = number % 2 === 0;
     const correctAnswer = numberEven ? 'yes' : 'no';
     if (answer !== correctAnswer) {
-      output(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      output(
+        `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`,
+      );
       return 0;
     }
     output('Correct!');
