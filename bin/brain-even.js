@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { output, question } from '../src/cli.js';
-
-const getNumber = () => Math.floor((Math.random() * 1000) + 1);
+import * as gameMath from '../src/game/math.js';
 
 const evenGame = () => {
   output('Welcome to the Brain Games!');
@@ -10,7 +9,7 @@ const evenGame = () => {
   output('Answer "yes" if the number is even, otherwise answer "no".');
 
   for (let i = 0; i < 3; i += 1) {
-    const number = getNumber();
+    const number = gameMath.getNumber();
     const answer = question(`Question: ${number}`);
     const numberEven = number % 2 === 0;
     const correctAnswer = numberEven ? 'yes' : 'no';
