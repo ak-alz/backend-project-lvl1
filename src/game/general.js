@@ -8,9 +8,8 @@ export const greetingsGame = () => {
 };
 
 export const getAnswer = (expression) => {
-  const answer = question(`Question: ${expression.join(' ')}`);
-  output(`You answer: ${answer}`);
-  return answer;
+  output(`Question: ${expression.join(' ')}`);
+  return question('You answer: ');
 };
 
 export const correctAnswer = () => {
