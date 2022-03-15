@@ -9,3 +9,16 @@ export const gct = (x, y) => {
   }
   return gctCurrent;
 };
+
+export const getArithmeticProgression = (length) => {
+  const progression = [];
+  const step = getRandom(1, 5);
+  let member = getRandom(1, 15);
+  let condition = length;
+  while (condition > 0) {
+    progression.push(member);
+    member += step;
+    condition -= 1;
+  }
+  return progression;
+};
