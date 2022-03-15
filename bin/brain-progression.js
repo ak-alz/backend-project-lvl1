@@ -11,7 +11,7 @@ const brainProgression = () => {
 
   const expression = [];
   progression[hideIndex] = '..';
-  expression.push(progression);
+  expression.push(progression.join(' '));
 
   const userAnswer = gameGeneral.getAnswer(expression);
 
