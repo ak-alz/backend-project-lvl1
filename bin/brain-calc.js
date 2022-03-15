@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import { output, question } from '../src/cli.js';
 import * as gameMath from '../src/game/math.js';
 import * as gameGeneral from '../src/game/general.js';
 
@@ -23,34 +22,16 @@ const getCorrectAnswer = (dataArray) => {
   }
 };
 
-const baseGameFunction = (name) => {
+const baseGameFunction = () => {
   const expression = [];
   expression.push(gameMath.getNumber());
   expression.push(getOperation());
   expression.push(gameMath.getNumber());
 
-  const answer = question(`Question: ${expression.join(' ')}`);
-  output(`You answer: ${answer}`);
+  const userAnswer = gameGeneral.getAnswer(expression);
+  const rightAnswer = getCorrectAnswer(expression);
 
-  const correctAnswer = getCorrectAnswer(expression);
-  if (+answer === correctAnswer) {
-    output('Correct!');
-  } else {
-    output(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-    output(`Let's try again, ${name}!`);
-    return 0;
-  }
-
-  return 1;
+  return gameGeneral.getGameResultObject(+rightAnswer, +userAnswer);
 };
 
-const main = () => {
-  const name = gameGeneral.greetingsGame();
-  output('What is the result of the expression?');
-  const gameResult = gameGeneral.startGame(baseGameFunction, name);
-  if (gameResult === 1) output(`Congratulations, ${name}!`);
-};
-
-main();
-
-export default main;
+gameGeneral.runGame(baseGameFunction);
